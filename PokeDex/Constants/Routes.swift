@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+class Route {
+    static let pokemonURL:String = "https://pokedex-bb36f.firebaseio.com/pokemon.json"
+}

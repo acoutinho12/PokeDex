@@ -7,14 +7,8 @@
 
 import SwiftUI
 
-struct LinearGradient: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct LinearGradient_Previews: PreviewProvider {
-    static var previews: some View {
-        LinearGradient()
+extension LinearGradient {
+    init(_ colors: Color...) {
+        self.init(gradient: Gradient(colors: colors), startPoint: .topLeading, endPoint: .bottomTrailing)
     }
 }

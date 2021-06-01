@@ -8,10 +8,8 @@
 import Foundation
 
 class PokemonViewModel: ObservableObject {
-    
-    var auxArray:[Int] = Array(0...1000)
-    
-    @Published var model: [Pokemon] = []{
+    private let pokemonURL = Route.pokemonURL
+    @Published var model: Pokemon = []{
         didSet{
             self.isLoading = false;
         }
@@ -19,18 +17,14 @@ class PokemonViewModel: ObservableObject {
     @Published var isLoading:Bool = true
     
     public func getPokemons() -> Void {
-        let rota = Route().pokemonURL
-        for id in auxArray {
-            let pokemonTypeURL:String = "\(rota)\(id)"
-            guard let url = URL(string: pokemonTypeURL) else { return }
+            
             do {
-                Network().get(from: url, resultType: Pokemon.self)
-                { PokemonTypeResponse in
+                Network().get(from: pokemonURL, resultType: Pokemon.self)
+                { pokemonResponse in
                     DispatchQueue.main.async {
-                        self.model.append(PokemonTypeResponse!)
+                        self.model = pokemonResponse!
                     }
                 }
             }
-        }
     }
 }

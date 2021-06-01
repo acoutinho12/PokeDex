@@ -7,14 +7,9 @@
 
 import SwiftUI
 
-struct Colors: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct Colors_Previews: PreviewProvider {
-    static var previews: some View {
-        Colors()
-    }
+extension Color  {
+    static let neuWhiteStart:Color = Color(red: 225 / 255, green: 225 / 255, blue: 235 / 255)
+    static let neuWhiteEnd:Color = Color(red: 175 / 255, green: 175 / 255, blue: 185 / 255)
+    static let neuDarkStart = Color(red: 50 / 255, green: 60 / 255, blue: 65 / 255)
+    static let neuDarkEnd = Color(red: 25 / 255, green: 25 / 255, blue: 30 / 255)
 }

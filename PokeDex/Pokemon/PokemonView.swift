@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PokemonView: View {
+    @Environment(\.colorScheme) var colorScheme
     private let gridItems = [GridItem(.flexible()),GridItem(.flexible())]
     @ObservedObject var viewModel:PokemonViewModel = PokemonViewModel();
     var body: some View {
@@ -19,13 +20,13 @@ struct PokemonView: View {
         }
         else{
             ScrollView([.vertical], showsIndicators: false){
-                Text("Pokemons").font(.system(size: 48))
+                Text("PokeDex").font(.system(size: 48))
                 LazyVGrid(columns: gridItems, content: {
                     ForEach(viewModel.model) { pokemon in
-                        PokemonCard(imagem: pokemon.sprites.other!.officialArtwork.frontDefault, name: pokemon.name, types:pokemon.types)
+                        PokemonCard(image: pokemon.imageURL, name: pokemon.name)
                     }.padding()
                 })
-            }
+            }.background(colorScheme == .light ? LinearGradient(Color.neuWhiteStart, Color.neuWhiteEnd) : LinearGradient(Color.neuDarkStart, Color.neuDarkEnd))
         }
     }
 }

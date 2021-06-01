@@ -6,15 +6,35 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
+
 
 struct PokemonCard: View {
+    @Environment(\.colorScheme) var colorScheme
+    
+    let image: String
+    let name: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+        ZStack{
+            RoundedRectangle(cornerRadius: 10).fill(colorScheme == .light ?  LinearGradient(Color.neuWhiteStart, Color.neuWhiteEnd) : LinearGradient(Color.neuDarkStart, Color.neuDarkEnd))
+            VStack{
+                HStack(alignment:.top){
+                    WebImage(url: URL(string: image))
+                        .resizable()
+                        .placeholder(Image(systemName: "photo"))
+                        .placeholder {
+                            Rectangle().foregroundColor(.gray)
+                        }
+                        .indicator(.activity)
+                        .transition(.fade(duration: 0.5))
+                        .scaledToFit()
+                }
+                Text(name)
+                    .foregroundColor(Color(red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1)))
+            }
+            .padding(4)
 
-struct PokemonCard_Previews: PreviewProvider {
-    static var previews: some View {
-        PokemonCard()
+        }.neumorphy()
+        
     }
 }
