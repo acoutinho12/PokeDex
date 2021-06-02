@@ -11,6 +11,7 @@ struct PokemonView: View {
     @Environment(\.colorScheme) var colorScheme
     private let gridItems = [GridItem(.flexible()),GridItem(.flexible())]
     @ObservedObject var viewModel:PokemonViewModel = PokemonViewModel();
+    
     var body: some View {
         if viewModel.isLoading
         {
@@ -20,13 +21,21 @@ struct PokemonView: View {
         }
         else{
             ScrollView([.vertical], showsIndicators: false){
-                Text("PokeDex").font(.system(size: 48))
+                
+                HStack{
+                    Text("PokeDex").font(Font.custom("Pokemon Solid", size:40))
+                    VStack(alignment:.trailing){
+                        Text("Colored").font(Font.custom("Pokemon Solid", size:16))
+                        Toggle("", isOn: $viewModel.inColors).toggleStyle(SwitchToggleStyle(tint: Color(UIColor.label)))
+                    }
+                }.padding()
+                
                 LazyVGrid(columns: gridItems, content: {
                     ForEach(viewModel.model) { pokemon in
-                        PokemonCard(image: pokemon.imageURL, name: pokemon.name)
+                        PokemonCard(image: pokemon.imageURL, name: pokemon.name, cardColor: viewModel.cardColor(forType: pokemon.type, colorScheme: colorScheme))
                     }.padding()
                 })
-            }.background(colorScheme == .light ? LinearGradient(Color.neuWhiteStart, Color.neuWhiteEnd) : LinearGradient(Color.neuDarkStart, Color.neuDarkEnd))
+            }.background(LinearGradient(colorScheme))
         }
     }
 }

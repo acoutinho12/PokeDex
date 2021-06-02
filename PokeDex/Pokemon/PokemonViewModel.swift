@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class PokemonViewModel: ObservableObject {
     private let pokemonURL = Route.pokemonURL
@@ -15,6 +16,36 @@ class PokemonViewModel: ObservableObject {
         }
     }
     @Published var isLoading:Bool = true
+    @Published var inColors:Bool = false
+    
+    public func cardColor(forType type: String, colorScheme: ColorScheme) -> LinearGradient{
+        if !self.inColors{
+            return LinearGradient(colorScheme);
+        }
+        
+        switch type {
+            case "fire":
+                return LinearGradient.neuFire
+            case "poison":
+                return LinearGradient.neuPoison
+            case "water":
+                return LinearGradient.neuWater
+            case "electric":
+                return LinearGradient.neuElectric
+            case "psychic":
+                return LinearGradient.neuPsychic
+            case "normal":
+                return LinearGradient(colorScheme)
+            case "ground":
+                return LinearGradient.neuGround
+            case "flying":
+                return LinearGradient.neuFlying
+            case "fairy":
+                return LinearGradient.neuFairy
+            default:
+                return LinearGradient(colorScheme)
+        }
+    }
     
     public func getPokemons() -> Void {
             

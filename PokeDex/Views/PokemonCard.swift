@@ -14,9 +14,10 @@ struct PokemonCard: View {
     
     let image: String
     let name: String
+    let cardColor: LinearGradient
     var body: some View {
         ZStack{
-            RoundedRectangle(cornerRadius: 10).fill(colorScheme == .light ?  LinearGradient(Color.neuWhiteStart, Color.neuWhiteEnd) : LinearGradient(Color.neuDarkStart, Color.neuDarkEnd))
+            RoundedRectangle(cornerRadius: 10).fill(cardColor)
             VStack{
                 HStack(alignment:.top){
                     WebImage(url: URL(string: image))
@@ -30,7 +31,7 @@ struct PokemonCard: View {
                         .scaledToFit()
                 }
                 Text(name)
-                    .foregroundColor(Color(red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1)))
+                    .foregroundColor(Color(UIColor.label))
             }
             .padding(4)
 

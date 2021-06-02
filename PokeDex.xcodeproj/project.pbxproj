@@ -18,6 +18,8 @@
 		17A7B7E226605E52008649E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17A7B7E126605E52008649E1 /* Assets.xcassets */; };
 		17A7B7E526605E52008649E1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17A7B7E426605E52008649E1 /* Preview Assets.xcassets */; };
 		17A7B7F226606185008649E1 /* Neumorphy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A7B7F126606185008649E1 /* Neumorphy.swift */; };
+		17B801FB2667DC2800561805 /* Pokemon Hollow.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17B801F82667DBE300561805 /* Pokemon Hollow.ttf */; };
+		17B801FD2667DC2A00561805 /* Pokemon Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17B801F92667DBE300561805 /* Pokemon Solid.ttf */; };
 		17ED4CB82666C013006C9303 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ED4CB72666C013006C9303 /* Colors.swift */; };
 		17ED4CBB2666C3C0006C9303 /* LinearGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ED4CBA2666C3C0006C9303 /* LinearGradient.swift */; };
 /* End PBXBuildFile section */
@@ -35,6 +37,8 @@
 		17A7B7E426605E52008649E1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		17A7B7E626605E52008649E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17A7B7F126606185008649E1 /* Neumorphy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neumorphy.swift; sourceTree = "<group>"; };
+		17B801F82667DBE300561805 /* Pokemon Hollow.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pokemon Hollow.ttf"; sourceTree = "<group>"; };
+		17B801F92667DBE300561805 /* Pokemon Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pokemon Solid.ttf"; sourceTree = "<group>"; };
 		17ED4CB72666C013006C9303 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		17ED4CBA2666C3C0006C9303 /* LinearGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearGradient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +99,7 @@
 		17A7B7DC26605E50008649E1 /* PokeDex */ = {
 			isa = PBXGroup;
 			children = (
+				17B801F42667DBBE00561805 /* Fonts */,
 				17775BD826611B8000479C70 /* Constants */,
 				17775BD32661195900479C70 /* Pokemon */,
 				17775BC82661161400479C70 /* Services */,
@@ -141,6 +146,15 @@
 				17ED4CBA2666C3C0006C9303 /* LinearGradient.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		17B801F42667DBBE00561805 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				17B801F82667DBE300561805 /* Pokemon Hollow.ttf */,
+				17B801F92667DBE300561805 /* Pokemon Solid.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,7 +221,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				17A7B7E526605E52008649E1 /* Preview Assets.xcassets in Resources */,
+				17B801FD2667DC2A00561805 /* Pokemon Solid.ttf in Resources */,
 				17A7B7E226605E52008649E1 /* Assets.xcassets in Resources */,
+				17B801FB2667DC2800561805 /* Pokemon Hollow.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
